@@ -1,22 +1,19 @@
 # Rust use C++ Dynamic Library Demo
 
-本项目给出了在 Windows 环境下 Rust 调用 C++ 库（Open3D）的示例。
+本项目给出了在 Mac 环境下 Rust 调用 C++ 库（Open3D）的示例。
 
-目前尚未实现脚本化打包。 需要借助 Clion IDE 来搞。
 
-This Demo show How Rust use C++ library in Windows OS.
+This Demo show How Rust use C++ library in Mac OS.
 
 
 ## 打包
 1. 下载 Open3D Binary 包
-2. Clion Settings->CMake->CMake Options 中添加 -DOpen3D_ROOT=path/of/open3d，Build Type 选择 Release
-3. Clion Settings -> ToolChains, Architecture 选择amd64（Open3d 只支持 x64）
-4. Clion 菜单 build -> install, 编译软件，并安装 lib、dll 到当前相应目录中
-5. `cargo run` 
+2. 将build.rs文件中的open3d_root修改为path/of/open3d
+3. 将build.rs文件中的extra_clang_args修改为你电脑上的路径
+4. `cargo run --release -- -d data/000000.bin -i 1` 
 
 ## Package
 1. Download Open3D binary package
-2. Clion Settings->CMake->CMake Options add `-DOpen3D_ROOT=path/of/open3d`，`Build Type` choose `Release`
-3. Clion Settings -> ToolChains, Architecture choose `amd64`
-4. Clion menu build -> install
-5. `cargo run`
+2. Change `open3d_root` in `build.rs` to your `path/of/open3d`
+3. Change `extra_clang_args` in `build.rs` to your path of sdk
+4. `cargo run --release -- -d data/000000.bin -i 1`

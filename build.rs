@@ -11,9 +11,10 @@ fn main() -> miette::Result<()> {
     println!("cargo:rustc-link-lib=dylib=Open3D");
     let mut b = autocxx_build::Builder::new("src/binds.rs", [&path_src, &path_open3d_include, &path_open3d_3rdparty])
                         .extra_clang_args(&["-isysroot", "/Library/Developer/CommandLineTools/SDKs/MacOSX13.1.sdk"])
+                        .auto_allowlist(true)
                         .build()?;
 
-    b.flag_if_supported("-std=c++14").compile("bridge-open3d");
+    b.flag_if_supported("-std=c++14").file("src/open3d_wrapper.cc").compile("bridge-open3d");
 
     println!("cargo:rerun-if-changed=src/main.rs");
     println!("cargo:rerun-if-changed=src/open3d_wrapper.h");

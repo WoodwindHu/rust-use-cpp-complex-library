@@ -14,10 +14,11 @@ fn main() -> miette::Result<()> {
                         .auto_allowlist(true)
                         .build()?;
 
-    b.flag_if_supported("-std=c++14").file("src/open3d_wrapper.cc").compile("bridge-open3d");
+    b.flag_if_supported("-std=c++14").file("src/open3d_wrapper.cc").compile("open3d-rs");
 
-    println!("cargo:rerun-if-changed=src/main.rs");
+    // println!("cargo:rerun-if-changed=src/main.rs");
     println!("cargo:rerun-if-changed=src/open3d_wrapper.h");
+    println!("cargo:rerun-if-changed=src/open3d_wrapper.cc");
     println!("cargo:rerun-if-changed=src/binds.rs");
 
     Ok(())

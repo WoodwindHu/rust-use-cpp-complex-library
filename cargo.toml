@@ -7,6 +7,8 @@ edition = "2021"
 cxx = "1.0"
 autocxx = "0.24"
 clap = { version = "4.1.6", features = ["derive"] }
+anyhow = "1.0.69"
+nalgebra = "0.32.1"
 
 [build-dependencies]
 cxx-build = "1.0"

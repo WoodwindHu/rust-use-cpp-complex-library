@@ -1,0 +1,51 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        
+        {
+            "type": "lldb",
+            "request": "launch",
+            "name": "Debug executable 'open3d-rs'",
+            "cargo": {
+                "args": [
+                    "build",
+                    "--bin=open3d-rs",
+                    "--package=open3d-rs",
+                    "--",
+                    "-d",
+                    "/Users/potapo/Desktop/open3d_vis_v10/data/kitti",
+                    "-i",
+                    "000001"
+                ],
+                "filter": {
+                    "name": "open3d-rs",
+                    "kind": "bin"
+                }
+            },
+            "args": [],
+            "cwd": "${workspaceFolder}"
+        },
+        {
+            "type": "lldb",
+            "request": "launch",
+            "name": "Debug unit tests in executable 'open3d-rs'",
+            "cargo": {
+                "args": [
+                    "test",
+                    "--no-run",
+                    "--bin=open3d-rs",
+                    "--package=open3d-rs"
+                ],
+                "filter": {
+                    "name": "open3d-rs",
+                    "kind": "bin"
+                }
+            },
+            "args": [],
+            "cwd": "${workspaceFolder}"
+        }
+    ]
+}
